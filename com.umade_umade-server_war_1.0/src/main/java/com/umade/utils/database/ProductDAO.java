@@ -53,6 +53,10 @@ public class ProductDAO extends SQLDatabase{
     }
     
     public void delete(int id){
-        executePreparedStatement("DELETE FROM" + table + "WHERE id = ?", id);
+        executeUpdatePreparedStatement("DELETE FROM " + table + " WHERE id = ?", id);
+    }
+    
+    public void update(int id, int quantity, int price){
+        executeUpdatePreparedStatement("UPDATE " + table + " SET quantity = ?, price = ? where id = ?", quantity, price, id);
     }
 }

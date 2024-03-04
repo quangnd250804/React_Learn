@@ -34,7 +34,12 @@ public class ProductController extends HttpServlet{
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPut(req, resp);
+        int id = Integer.parseInt(req.getParameter("id"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
+        int price = Integer.parseInt(req.getParameter("price"));
+//        String image = req.getParameter("image");
+//        
+        dbContext.update(id, quantity, price);
     }
 
     @Override
